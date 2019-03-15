@@ -1,0 +1,31 @@
+<!doctype html>
+<html ng-app='baseClient' lang="en">
+  <head>
+    <title>Central Monitor</title>
+    <meta content="">
+    <link rel="stylesheet" href="styles/styles.css">
+      <link rel="stylesheet"; href="https://unpkg.com/ng-table@2.0.2/bundles/ng-table.min.css">
+    <style>
+      .message { font-size: 1.3em; font-weight: bold; }
+    </style>
+      <script src="angular.min.js"></script>
+      <script src="angular-ui-router.min.js"></script>
+
+      <script src="https://unpkg.com/ng-table@2.0.2/bundles/ng-table.min.js"></script>
+      <script src="baseclient.js"></script>
+      <script src="routes.js"></script>
+      <script src="data.module.js"></script>
+      <script src="TrucksController.js"></script>
+  </head>
+<body>
+   <div class="sidenav">
+       <a ui-sref="trucks">Trucks</a>
+       <a ui-sref="orders">Orders</a>
+       <a ui-sref="clients">Clients</a>
+   </div>
+
+    <div class="main">
+        <ui-view></ui-view>
+    </div>
+</body>
+</html>
