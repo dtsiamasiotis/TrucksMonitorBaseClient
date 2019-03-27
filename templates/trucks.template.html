@@ -6,12 +6,30 @@
 </head>
 <body>
 <table ng-table="trucks.tableParams" class="table" show-filter="true">
-    <tr ng-repeat="user in $data">
-        <td title="'Name'" filter="{ name: 'text'}" sortable="'name'">
-            {{user.name}}</td>
-        <td title="'Age'" filter="{ age: 'number'}" sortable="'age'">
-            {{user.age}}</td>
+    <tr ng-repeat="truck in $data">
+        <td title="'Licence Plate'" filter="{ licence_plate: 'text'}" sortable="'licence_plate'">
+            {{truck.licence_plate}}</td>
+        <td title="'Status'" filter="{ status: 'text'}" sortable="'status'">
+            {{truck.status}}</td>
+        <td title="'Current Order Id'" filter="{ current_order_id: 'text'}" sortable="'current_order_id'">
+            {{truck.current_order_id}}</td>
     </tr>
 </table>
+<div>
+    <button ng-click="$scope.showAddForm=true;">Add</button>
+</div>
+<div ng-if=$scope.showAddForm>
+    <div>
+    <label>Licence Plate:
+<input type="text" name="licencePlate" ng-model="licence_plate">
+    </label>
+    </div>
+    <div>
+    <label>Status:
+        <input type="text" name="licencePlate" ng-model="licence_plate">
+    </label>
+    </div>
+    <button ng-click="saveNewTruck()">Save</button>
+</div>
 </body>
 </html>

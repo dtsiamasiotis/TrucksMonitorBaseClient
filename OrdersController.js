@@ -2,11 +2,11 @@
     'use strict';
 
     angular.module('baseClient')
-        .controller('TrucksController', TrucksController);
+        .controller('OrdersController', OrdersController);
 
 
-    TrucksController.$inject = ['items','NgTableParams'];
-    function TrucksController(items,NgTableParams) {
+    OrdersController.$inject = ['items','NgTableParams'];
+    function OrdersController(items,NgTableParams) {
         var self = this;
         var data = items;
         self.tableParams = new NgTableParams({}, { dataset: data});

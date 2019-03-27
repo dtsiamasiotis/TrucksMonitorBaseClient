@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Trucks</title>
+</head>
+<body>
+<table ng-table="orders.tableParams" class="table" show-filter="true">
+    <tr ng-repeat="order in $data">
+        <td title="'Id'" filter="{ id: 'text'}" sortable="'id'">
+            {{order.id}}</td>
+        <td title="'Quantity'" filter="{ quantity: 'text'}" sortable="'quantity'">
+            {{order.quantity}}</td>
+        <td title="'Status'" filter="{ status: 'text'}" sortable="'status'">
+            {{order.status}}</td>
+    </tr>
+</table>
+</body>
+</html>
