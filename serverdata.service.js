@@ -41,5 +41,16 @@
                     return responseArray;
                 });
         };
+
+        service.saveTruck=function(requestBody){
+            return $http({
+                method:"POST",
+                url:("http://localhost:4000/registerTruck"),
+                data: requestBody
+            })
+                .then(function(response){
+                    console.log(response);
+                });
+        };
     }
 })();
