@@ -45,7 +45,18 @@
         service.saveTruck=function(requestBody){
             return $http({
                 method:"POST",
-                url:("http://localhost:4000/registerTruck"),
+                url:("http://localhost:8080/servlet/truckActions/registerTruck"),
+                data: requestBody
+            })
+                .then(function(response){
+                    console.log(response);
+                });
+        };
+
+        service.saveOrder=function(requestBody){
+            return $http({
+                method:"POST",
+                url:("http://localhost:8080/servlet/truckActions/registerTruck"),
                 data: requestBody
             })
                 .then(function(response){

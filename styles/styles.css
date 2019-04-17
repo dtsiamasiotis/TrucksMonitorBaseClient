@@ -31,4 +31,6 @@
     .sidenav a {font-size: 18px;}
 }
 
-
+.ng-table-rowselected tr {
+    cursor: pointer;
+}

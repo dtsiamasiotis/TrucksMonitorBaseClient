@@ -23,6 +23,10 @@
 
             return body;
         };
+
+        self.processData = function(truck){
+            console.log(truck.status);
+        }
     }
 
 

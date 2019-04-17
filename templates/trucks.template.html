@@ -5,8 +5,8 @@
     <title>Trucks</title>
 </head>
 <body>
-<table ng-table="trucks.tableParams" class="table" show-filter="true">
-    <tr ng-repeat="truck in $data">
+<table ng-table="trucks.tableParams" class="table ng-table-rowselected" show-filter="true">
+    <tr ng-repeat="truck in $data" ng-click="trucks.processData(truck)">
         <td title="'Licence Plate'" filter="{ licence_plate: 'text'}" sortable="'licence_plate'">
             {{truck.licence_plate}}</td>
         <td title="'Status'" filter="{ status: 'text'}" sortable="'status'">
