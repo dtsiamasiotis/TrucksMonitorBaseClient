@@ -15,5 +15,16 @@
             {{order.status}}</td>
     </tr>
 </table>
+<div>
+    <button ng-click="$scope.showAddForm=true;">Add</button>
+</div>
+<div ng-if=$scope.showAddForm>
+    <div>
+        <label>Quantity:
+            <input type="text" name="quantity" ng-model="quantity">
+        </label>
+    </div>
+    <button ng-click="orders.saveNewOrder(quantity)">Save</button>
+</div>
 </body>
 </html>

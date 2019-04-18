@@ -13,6 +13,7 @@
             {{truck.status}}</td>
         <td title="'Current Order Id'" filter="{ current_order_id: 'text'}" sortable="'current_order_id'">
             {{truck.current_order_id}}</td>
+        <td> <button ng-click="trucks.removeTruck(truck.id)">Delete</button></td>
     </tr>
 </table>
 <div>

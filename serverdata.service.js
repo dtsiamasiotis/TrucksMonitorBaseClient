@@ -12,10 +12,11 @@
         service.getTrucks= function () {
             return $http({
                 method:"GET",
-                url:("http://localhost:4000/trucks")
+                url:("http://localhost:8080/servlet/truckActions/getTrucks")
             })
                 .then(function (response) {
                     var responseArray = response.data;
+                    console.log(responseArray);
                     return responseArray;
                 });
         };
@@ -56,7 +57,18 @@
         service.saveOrder=function(requestBody){
             return $http({
                 method:"POST",
-                url:("http://localhost:8080/servlet/truckActions/registerTruck"),
+                url:("http://localhost:8080/servlet/orderActions/addOrder"),
+                data: requestBody
+            })
+                .then(function(response){
+                    console.log(response);
+                });
+        };
+
+        service.removeTruck=function(requestBody){
+            return $http({
+                method:"POST",
+                url:("http://localhost:8080/servlet/truckActions/deleteTruck"),
                 data: requestBody
             })
                 .then(function(response){
