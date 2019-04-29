@@ -24,7 +24,7 @@
         service.getOrders=function(){
             return $http({
                 method:"GET",
-                url:("http://localhost:4000/orders")
+                url:("http://localhost:8080/servlet/orderActions/getOrders")
             })
                 .then(function(response){
                     var responseArray = response.data;
@@ -59,6 +59,17 @@
             return $http({
                 method:"POST",
                 url:("http://localhost:8080/servlet/orderActions/addOrder"),
+                data: requestBody
+            })
+                .then(function(response){
+                    console.log(response);
+                });
+        };
+
+        service.removeOrder=function(requestBody){
+            return $http({
+                method:"POST",
+                url:("http://localhost:8080/servlet/orderActions/deleteOrder"),
                 data: requestBody
             })
                 .then(function(response){

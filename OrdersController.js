@@ -12,14 +12,31 @@
         self.tableParams = new NgTableParams({}, { dataset: data});
 
         self.saveNewOrder = function(quantity) {
-            var requestBody = self.createPostRequestBody(quantity)
+            var requestBody = self.createJsonAddOrder(quantity);
             console.log(requestBody);
-            ServerDataService.saveOrder(requestBody);
+            ServerDataService.saveOrder(requestBody).then(function(response){ServerDataService.getOrders().then(function(response){self.updateTable(response);})});
         };
 
-        self.createPostRequestBody = function(quantity) {
+        self.updateTable = function(data){
+            self.tableParams.settings().dataset=data;
+            self.tableParams.total(data.length);
+            self.tableParams.reload();
+        };
+
+        self.removeOrder = function(id){
+            var requestBody = self.createJsonDelOrder(id);
+            console.log(requestBody);
+            ServerDataService.removeOrder(requestBody).then(function(response){ServerDataService.getOrders().then(function(response){self.updateTable(response);})});
+        };
+
+        self.createJsonAddOrder = function(quantity) {
             var body = "{\"quantity\":\""+quantity+"\"}";
 
+            return body;
+        };
+
+        self.createJsonDelOrder = function(id) {
+            var body = "{\"id\":\""+id+"\"}";
             return body;
         };
 

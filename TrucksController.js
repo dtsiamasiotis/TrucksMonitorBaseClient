@@ -14,7 +14,7 @@
 
         self.saveNewTruck = function(licence_plate,status) {
             console.log(data);
-            var requestBody = self.createJsonAddTruck(licence_plate,status)
+            var requestBody = self.createJsonAddTruck(licence_plate,status);
             console.log(requestBody);
             ServerDataService.saveTruck(requestBody).then(function(response){ServerDataService.getTrucks().then(function(response){self.updateTable(response);})});
         };
@@ -27,9 +27,9 @@
         };
 
         self.removeTruck = function(id){
-            var requestBody = self.createJsonDelTruck(id)
+            var requestBody = self.createJsonDelTruck(id);
             console.log(requestBody);
-            ServerDataService.removeTruck(requestBody);
+            ServerDataService.removeTruck(requestBody).then(function(response){ServerDataService.getTrucks().then(function(response){self.updateTable(response);})});
         };
 
         self.createJsonAddTruck = function(licence_plate,status) {
