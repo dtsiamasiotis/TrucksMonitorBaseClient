@@ -13,6 +13,8 @@
             {{order.quantity}}</td>
         <td title="'Status'" filter="{ status: 'text'}" sortable="'status'">
             {{order.status}}</td>
+        <td title="'Address'" filter="{ address: 'text'}" sortable="'address'">
+            {{order.address}}</td>
         <td> <button ng-click="orders.removeOrder(order.id)">Delete</button></td>
     </tr>
 </table>
