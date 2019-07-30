@@ -11,8 +11,8 @@
         var data = items;
         self.tableParams = new NgTableParams({}, { dataset: data});
 
-        self.saveNewOrder = function(quantity) {
-            var requestBody = self.createJsonAddOrder(quantity);
+        self.saveNewOrder = function(quantity,address) {
+            var requestBody = self.createJsonAddOrder(quantity,address);
             console.log(requestBody);
             ServerDataService.saveOrder(requestBody).then(function(response){ServerDataService.getOrders().then(function(response){self.updateTable(response);})});
         };
@@ -29,15 +29,18 @@
             ServerDataService.removeOrder(requestBody).then(function(response){ServerDataService.getOrders().then(function(response){self.updateTable(response);})});
         };
 
-        self.createJsonAddOrder = function(quantity) {
-            var body = "{\"quantity\":\""+quantity+"\"}";
+        self.createJsonAddOrder = function(quantity,address) {
+            var orderObj = {quantity:quantity,address:address};
+            var orderJson = JSON.stringify(orderObj);
 
-            return body;
+            return orderJson;
         };
 
         self.createJsonDelOrder = function(id) {
-            var body = "{\"id\":\""+id+"\"}";
-            return body;
+            var orderObj = {id:id};
+            var orderJson = JSON.stringify(orderObj);
+
+            return orderJson;
         };
 
 

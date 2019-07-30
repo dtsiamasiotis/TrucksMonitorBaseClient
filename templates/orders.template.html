@@ -27,7 +27,14 @@
             <input type="text" name="quantity" ng-model="quantity">
         </label>
     </div>
-    <button ng-click="orders.saveNewOrder(quantity)">Save</button>
+    <div>
+        <label>Address:
+            <input type="text" name="address" ng-model="address">
+        </label>
+    </div>
+    <div>
+    <button ng-click="orders.saveNewOrder(quantity,address)">Save</button>
+    </div>
 </div>
 </body>
 </html>
